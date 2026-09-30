@@ -20,6 +20,7 @@ UR_APIEXPORT ur_result_t UR_APICALL
 urPlatformGet(ur_adapter_handle_t, uint32_t NumEntries,
               ur_platform_handle_t *phPlatforms, uint32_t *pNumPlatforms) {
 
+  UR_LOG(DEBUG, "Adapter OFFLOAD: {} platforms available", Adapter->Platforms.size());
   if (pNumPlatforms) {
     *pNumPlatforms = Adapter->Platforms.size();
   }

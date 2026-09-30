@@ -612,7 +612,7 @@ ur_adapter_handle_t_::ur_adapter_handle_t_()
 
   ur_result_t err = initPlatforms(this, platforms, ZesResult);
   if (err == UR_RESULT_SUCCESS) {
-    UR_LOG(DEBUG, "Initialized {} platforms", platforms.size());
+    UR_LOG(DEBUG, "LZ Initialized {} platforms", platforms.size());
     Platforms = std::move(platforms);
   } else {
     UR_LOG(ERR, "Failed to initialize Platforms");

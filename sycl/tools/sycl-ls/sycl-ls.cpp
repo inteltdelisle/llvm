@@ -467,7 +467,7 @@ int main(int argc, char **argv) {
     // enable the printing of any errors related to adapter loading.
     const char *ur_log_loader_var = std::getenv("UR_LOG_LOADER");
     if (verbose && ur_log_loader_var == nullptr)
-      setenv("UR_LOG_LOADER", "level:info;output:stderr", 1);
+      setenv("UR_LOG_LOADER", "level:debug;output:stderr", 1);
 
     const auto &Platforms = platform::get_platforms();
 
