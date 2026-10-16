@@ -22,7 +22,7 @@ urPlatformGet(ur_adapter_handle_t, uint32_t NumEntries,
 
   UR_ASSERT(pNumPlatforms || phPlatforms, UR_RESULT_ERROR_INVALID_VALUE);
 
-  UR_LOG(DEBUG, "Adapter NATIVE_CPU: {} platforms available", 1);
+  UR_LOG(INFO, "Adapter NATIVE_CPU: {} platforms available", 1);
   if (pNumPlatforms) {
     *pNumPlatforms = 1;
   }

@@ -166,8 +166,7 @@ ur_result_t urPlatformGet(ur_adapter_handle_t, uint32_t NumEntries,
         }
         Adapter->NumPlatforms =
             static_cast<uint32_t>(Adapter->URPlatforms.size());
-            
-        UR_LOG(DEBUG, "CL Initialized {} platforms", NumPlatforms);
+        UR_LOG(INFO, "CL Initialized {} platforms", NumPlatforms);
       } catch (std::bad_alloc &) {
         return UR_RESULT_ERROR_OUT_OF_RESOURCES;
       } catch (...) {
@@ -262,6 +261,7 @@ ur_result_t ur_platform_handle_t_::InitDevices() {
 
     // Absorb the CL_DEVICE_NOT_FOUND and just return 0 in num_devices
     if (Res == CL_DEVICE_NOT_FOUND) {
+      UR_LOG(ERR, "CL Device not found");
       return UR_RESULT_SUCCESS;
     }
 
@@ -273,6 +273,7 @@ ur_result_t ur_platform_handle_t_::InitDevices() {
 
     // Absorb the CL_DEVICE_NOT_FOUND and just return 0 in num_devices
     if (Res == CL_DEVICE_NOT_FOUND) {
+      UR_LOG(ERR, "CL Device not found 2");
       return UR_RESULT_SUCCESS;
     }
 
