@@ -555,6 +555,31 @@ int main(int argc, char **argv) {
     printSelectorChoice(custom_selector(info::device_type::accelerator),
                         "custom_selector(acc)    : ");
 
+    std::cout << "\nMissing OpenCL platforms or devices can be diagnosed using "
+                 "the clinfo tool."
+              << std::endl;
+    std::cout << "If the UR Logger prints '<LOADER>[ERROR]: CL Failed to get "
+                 "platform IDs' above, it suggests that there might be an "
+                 "issue with the OpenCL configuration."
+              << std::endl;
+    std::cout << "\nMissing CUDA platforms or devices can be diagnosed using "
+                 "nvidia-smi."
+              << std::endl;
+    std::cout << "\nMissing HIP platforms or devices can be diagnosed using "
+                 "rocminfo or amd-smi."
+              << std::endl;
+    std::cout << "\nMissing Level Zero platforms or devices can be diagnosed "
+                 "by setting ZE_ENABLE_LOADER_DEBUG_TRACE=1, and on Linux by "
+                 "checking access to /dev/dri/renderD*."
+              << std::endl;
+    std::cout << "If the UR Logger prints '<LOADER>[ERROR]: Level Zero "
+                 "Uninitialized' above, it suggests that there might be an "
+                 "issue with the Level Zero configuration."
+              << std::endl;
+    std::cout << "For all platforms and devices, strace can be used to "
+                 "diagnose any missing shared libraries."
+              << std::endl;
+
   } catch (sycl::exception &e) {
     std::cerr << "SYCL Exception encountered: " << e.what() << std::endl
               << std::endl;
